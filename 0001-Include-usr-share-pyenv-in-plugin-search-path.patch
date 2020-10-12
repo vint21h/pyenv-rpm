@@ -8,18 +8,17 @@ Subject: [PATCH] Include /usr/share/pyenv in plugin search path
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/libexec/pyenv b/libexec/pyenv
-index 9dd464a..d62daa9 100755
+index 93debeae..125b7932 100755
 --- a/libexec/pyenv
 +++ b/libexec/pyenv
-@@ -91,7 +91,7 @@ export PYENV_DIR
- shopt -s nullglob
- 
- bin_path="$(abs_dirname "$0")"
--for plugin_bin in "${PYENV_ROOT}/plugins/"*/bin; do
+@@ -97,7 +97,7 @@ bin_path="$(abs_dirname "$0")"
+ for plugin_bin in "${bin_path%/*}"/plugins/*/bin; do
+   PATH="${plugin_bin}:${PATH}"
+ done
+-for plugin_bin in "${PYENV_ROOT}"/plugins/*/bin; do
 +for plugin_bin in "${PYENV_ROOT}/plugins/"*/bin /usr/share/pyenv/plugins/*/bin; do
    PATH="${plugin_bin}:${PATH}"
  done
  export PATH="${bin_path}:${PATH}"
 -- 
-1.9.3
-
+1.2.21
