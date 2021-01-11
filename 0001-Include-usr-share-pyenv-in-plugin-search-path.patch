@@ -21,4 +21,4 @@ index 93debeae..125b7932 100755
  done
  export PATH="${bin_path}:${PATH}"
 -- 
-1.2.21
+1.2.22
